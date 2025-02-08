@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <!-- Title -->
+      <title>Fitfuel - Protein and Healthy Food | Jantar</title>
+      <!-- Script fontawesome -->
+      <script src="https://kit.fontawesome.com/fc35c47a0f.js" crossorigin="anonymous"></script>
+      <!-- Favicon -->
+      <link rel="icon" href="img/core-img/favicon.ico">
+      <!-- Core Stylesheet -->
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="css/login.css">
+   </head>
+   <body>
+      <!-- Preloader -->
+      <div id="preloader">
+         <i class="circle-preloader"></i>
+      </div>
+      <!-- Search Wrapper -->
+      <!-- ##### Header Area Start ##### -->
+      <header class="header-area">
+         <!-- Top Header Area -->
+         <div class="top-header-area">
+            <div class="container h-100">
+               <div class="row h-100 align-items-center justify-content-between">
+                  <!-- Breaking News -->
+                  <div class="col-12 col-sm-6">
+                     <div class="breaking-news">
+                        <div id="breakingNewsTicker" class="ticker">
+                           <ul>
+                              <li><a href="#">Welcome to Fitfuel!</a></li>
+                              <li><a href="#">Protein and healthy food!</a></li>
+                              <li><a href="#">Calculate your calories!</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Top Social Info -->
+                  <div class="col-12 col-sm-6">
+                     <div class="top-social-info text-right">
+                        <!-- <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                           <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                           <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                           <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                           <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a> -->
+                        <a href="https://www.linkedin.com/in/jorge-amadeu-pereira" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Navbar Area -->
+         <div class="delicious-main-menu">
+            <div class="delicious-main-menu">
+               <div class="classy-nav-container breakpoint-off">
+                  <div class="container">
+                     <!-- Menu -->
+                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
+                        <!-- Logo -->
+                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                           <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                           <!-- close btn -->
+                           <div class="classycloseIcon">
+                              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                           </div>
+                           <!-- Nav Start -->
+                           <div class="classynav">
+                              <ul>
+                                 <li><a href="index.html">Home</a></li>
+                                 <li class="active">
+                                    <a href="#">Almoço/Jantar</a>
+                                    <ul class="dropdown">
+                                       <li><a href="breakfast.html">Pequeno-Almoço</a></li>
+                                       <li><a href="breakfast.html">Lanche</a></li>
+                                       <li><a href="desert.html">Sobremesa</a></li>
+                                       </li>
+                                    </ul>
+                                 </li>
+                                <li><a href="calculate.html">Calcular calorias</a></li>
+                                 <li><a href="#" onclick="openLoginModal()">Login/Registrar</a></li>
+                              </ul>
+                              <!-- Modal -->
+                              <div id="loginModal" class="modal">
+                                 <div class="modal-content">
+                                    <span class="close" onclick="closeLoginModal()">&times;</span>
+                                    <!-- Container Login -->
+                                    <div id="loginForm">
+                                       <h2>Login</h2>
+                                       <form method="POST" action="login.php">
+                                          <label for="username">Username:</label>
+                                          <input type="text" id="username" name="username" required>
+                                          <label for="password">Password:</label>
+                                          <input type="password" id="password" name="password" required>
+                                          <div id="loginError" style="color: red; display: none;"></div>
+                                          <button type="submit">Entrar</button>
+                                       </form>
+                                       <p>Não tem uma conta? <a href="#" onclick="showRegister()">Registre-se</a></p>
+                                    </div>
+                                    <!-- Container Registro -->
+                                    <div id="registerForm" style="display: none;">
+                                       <h2>Registrar</h2>
+                                       <form method="POST" action="register.php">
+                                           <label for="newFullname">Nome completo:</label>
+                                           <input type="text" id="newFullname" name="fullname" required>
+                                   
+                                           <label for="newUsername">Username:</label>
+                                           <input type="text" id="newUsername" name="username" required>
+                                   
+                                           <label for="newEmail">Email:</label>
+                                           <input type="email" id="newEmail" name="email" required>
+                                   
+                                           <label for="newPassword">Password:</label>
+                                           <input type="password" id="newPassword" name="password" required>
+                                   
+                                           <label for="newPasswordConfirm">Confirmar Password:</label>
+                                           <input type="password" id="newPasswordConfirm" name="password_confirm" required>
+                                           <!-- Mensagem de erro específica para password -->
+                                           <div id="passwordError" style="color: red; display: none;"></div>
+                                           <!-- Exibir mensagens de erro -->
+                                           <div id="registerError" style="color: red; margin-bottom: 10px; display: none;"></div>
+                                           <button type="submit" id="registerButton">Registrar</button>
+                                       </form>
+                                       <p>Já tem uma conta? <a href="#" onclick="showLogin()">Faça Login</a></p>
+                                   </div>                                
+                                 </div>
+                              </div>
+                              </div>
+                           <!-- Nav End -->
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- ##### Header Area End ##### -->
+      <!-- ##### Breadcumb Area Start ##### -->
+      <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.png);">
+         <div class="container h-100">
+            <div class="row h-100 align-items-center">
+               <div class="col-12">
+                  <div class="breadcumb-text text-center">
+                     <h2>Almoço/Jantar</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- ##### Breadcumb Area End ##### -->
+      <div class="receipe-post-area section-padding-80">
+         <!-- Receipe Post Search -->
+         <!-- <div class="receipe-post-search mb-80">
+            <div class="container">
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col-12 col-lg-3">
+                            <select name="select1" id="select1">
+                                <option value="1">All Receipies Categories</option>
+                                <option value="1">All Receipies Categories 2</option>
+                                <option value="1">All Receipies Categories 3</option>
+                                <option value="1">All Receipies Categories 4</option>
+                                <option value="1">All Receipies Categories 5</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <select name="select1" id="select2">
+                                <option value="1">All Receipies Categories</option>
+                                <option value="1">All Receipies Categories 2</option>
+                                <option value="1">All Receipies Categories 3</option>
+                                <option value="1">All Receipies Categories 4</option>
+                                <option value="1">All Receipies Categories 5</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <input type="search" name="search" placeholder="Search Receipies">
+                        </div>
+                        <div class="col-12 col-lg-3 text-right">
+                            <button type="submit" class="btn delicious-btn">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div> -->
+         <!-- Receipe Slider -->
+         <section id="recipe1">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="receipe-slider owl-carousel">
+                        <img src="img/bg-img/l.jpg">
+                        <img src="img/bg-img/dinner2.png">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Receipe Content Area -->
+            <div class="receipe-content-area">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-12 col-md-8">
+                        <div class="receipe-headline my-5">
+                           <span>507 Kcal</span>
+                           <h2>Esparguete Cremosa com Queijo e Frango caseiro</h2>
+                           <div class="receipe-duration">
+                              <h6><i class="fas fa-stopwatch"></i> 15 minutos</h6>
+                              <h6><i class="fas fa-shopping-basket"></i> 5 ingredientes</h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <!-- Passo a Passo -->
+                     <div class="col-12 col-lg-8">
+                        <h2>Passo a passo</h2>
+                        <div class="single-preparation-step d-flex">
+                           <h4>01.</h4>
+                           <p>Começa por colocar a massa a ferver numa panela quente com sal e cozinha de acordo com as instruções da embalagem.</p>
+                        </div>
+                        <div class="single-preparation-step d-flex">
+                           <h4>02.</h4>
+                           <p>Numa frigideira em lume médio cozinha o frango temperado e cortado aos cubos.</p>
+                        </div>
+                        <div class="single-preparation-step d-flex">
+                           <h4>03.</h4>
+                           <p>Numa liquidificadora adiciona o queijo de barrar, o leite magro, o queijo parmersão e o copo com a água da massa (isso ajuda o molho a engrossar). Tritura tudo. </p>
+                        </div>
+                        <!-- Single Preparation Step -->
+                        <div class="single-preparation-step d-flex">
+                           <h4>04.</h4>
+                           <p>Na frigidideira antiaderente coloca o molho e deixar levantar fervura sempre mexendo até engrossar. </p>
+                        </div>
+                        <div class="single-preparation-step d-flex">
+                           <h4>05.</h4>
+                           <p>Acrescenta a massa e envolve bem. Coloca o frango por cima e está pronta a servir. </p>
+                        </div>
+                     </div>
+                     <!-- Ingredientes e Nutrição -->
+                     <div class="col-12 col-lg-4">
+                        <div class="tabs-container">
+                           <!-- Tabs -->
+                           <div class="tabs">
+                              <button class="tab-button active" data-tab="ingredients">Ingredientes</button>
+                              <button class="tab-button" data-tab="nutrition">Nutrição</button>
+                           </div>
+                           <!-- Content of Tabs -->
+                           <div class="tab-content">
+                              <div class="tab-panel active" id="ingredients">
+                                 <h4>Ingredientes</h4>
+                                 <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">100 grama Philadelphia light</label>
+                                 </div>
+                                 <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2">200 mililitros Fat free milk
+                                    </label>
+                                 </div>
+                                 <!-- Custom Checkbox -->
+                                 <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                    <label class="custom-control-label" for="customCheck3">200 grama Peito de frango (cru)</label>
+                                 </div>
+                                 <!-- Custom Checkbox -->
+                                 <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                    <label class="custom-control-label" for="customCheck4">20 grama Queijo parmesão</label>
+                                 </div>
+                                 <!-- Custom Checkbox -->
+                                 <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                    <label class="custom-control-label" for="customCheck5">130 grama Esparguete (peso cru)</label>
+                                 </div>
+                              </div>
+                              <div class="tab-panel" id="nutrition">
+                                 <h4>Nutrição</h4>
+                                 <table class="table">
+                                    <tr>
+                                       <th>Calorias</th>
+                                       <th>Gordura</th>
+                                       <th>Carboidratos líquidos</th>
+                                       <th>Proteína</th>
+                                    </tr>
+                                    <tr>
+                                       <td>507 kcal</td>
+                                       <td>12 g</td>
+                                       <td>54 g</td>
+                                       <td>40 g</td>
+                                    </tr>
+                                 </table>
+                                 <div class="info-message">
+                                 <span class="info-icon">i</span>
+                                 Informação fornecida é uma estimativa
+                              </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section id="recipe2">
+            <hr class="recipe-divider">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="receipe-slider owl-carousel">
+                        <img src="img/bg-img/lunch.png">
+                        <img src="img/bg-img/dinner1.png">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="receipe-content-area">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-12 col-md-8">
+                        <div class="receipe-headline my-5">
+                           <span>553 Kcal</span>
+                           <h2>Massa Cremosa de Pimentos</h2>
+                           <div class="receipe-duration">
+                              <h6><i class="fas fa-stopwatch"></i> 15 minutos</h6>
+                              <h6><i class="fas fa-shopping-basket"></i> 8 ingredientes</h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <!-- Passo a Passo -->
+                     <div class="col-12 col-lg-8">
+                        <h2>Passo a passo</h2>
+                        <div class="single-preparation-step d-flex">
+                           <h4>01.</h4>
+                           <p>Corta o frango aos cubos e tempera a teu gosto.</p>
+                        </div>
+                        <div class="single-preparation-step d-flex">
+                           <h4>02.</h4>
+                           <p>Numa panela com água a ferver e sal coloca a massa. <br>
+                               (O tempo de cozedura conforme a orientação na embalagem) </p>
+                        </div>
+                        <div class="single-preparation-step d-flex">
+                           <h4>03.</h4>
+                           <p>Numa frigideira adicionar cebola, pimentos, o tomate triturado e refogar cerca de 5 minutos.</p>
+                        </div>
+                        <!-- Single Preparation Step -->
+                        <div class="single-preparation-step d-flex">
+                           <h4>04.</h4>
+                           <p>Na liquidificadora acrescentar o conteúdo da frigideira, com os dentes de alho, iogurte grego e uma colher grande de água da massa. Triturar tudo. </p>
+                        </div>
+                        <div class="single-preparation-step d-flex">
+                           <h4>05.</h4>
+                           <p>Na frigideira grelhar o frango, quando tiver dourado acrescenta a massa cozida e verte o molho da liquidifcadora para a frigideira e mexe e envolve tudo. </p>
+                        </div>
+                        <div class="single-preparation-step d-flex">
+                           <h4>06.</h4>
+                           <p>Após o molho engrossar, está pronto a servir.</p>
+                        </div>
+                     </div>
+                     <!-- Ingredientes e Nutrição -->
+                     <div class="col-12 col-lg-4">
+                     <div class="tabs-container">
+                        <!-- Tabs -->
+                        <div class="tabs">
+                           <button class="tab-button active" data-tab="ingredients2">Ingredientes</button>
+                           <button class="tab-button" data-tab="nutrition2">Nutrição</button>
+                        </div>
+                        <!-- Conteúdo das Tabs -->
+                        <div class="tab-content">
+                           <!-- Ingredientes -->
+                           <div class="tab-panel active" id="ingredients2">
+                              <h4>Ingredientes</h4>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck6">
+                                 <label class="custom-control-label" for="customCheck6">150 grama Peito de frango (cru)</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                 <label class="custom-control-label" for="customCheck7">75 grama Massa (peso cru)</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck8">
+                                 <label class="custom-control-label" for="customCheck8">100 grama Tomate triturado</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck9">
+                                 <label class="custom-control-label" for="customCheck9">100 grama Pimentos</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck10">
+                                 <label class="custom-control-label" for="customCheck10">50 grama Cebola</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck11">
+                                 <label class="custom-control-label" for="customCheck11">2 dente Alho</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck12">
+                                 <label class="custom-control-label" for="customCheck12">50 grama Iogurte grego light</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input" id="customCheck13">
+                                 <label class="custom-control-label" for="customCheck13">1 colher de chá Especiarias a gosto</label>
+                              </div>
+                           </div>
+                           <!-- Nutrição -->
+                           <div class="tab-panel" id="nutrition2">
+                              <h4>Nutrição</h4>
+                              <table class="table">
+                                 <tr>
+                                    <th>Calorias</th>
+                                    <th>Gordura</th>
+                                    <th>Carboidratos líquidos</th>
+                                    <th>Proteína</th>
+                                 </tr>
+                                 <tr>
+                                    <td>553 kcal</td>
+                                    <td>6 g</td>
+                                    <td>68 g</td>
+                                    <td>50 g</td>
+                                 </tr>
+                              </table>
+                              <div class="info-message">
+                                 <span class="info-icon">i</span>
+                                 Informação fornecida é uma estimativa
+                              </div>
+                           </div>
+                        </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+      <!-- ##### Follow Us Instagram Area End ##### -->
+      <!-- ##### Footer Area Start ##### -->
+      <footer class="footer-area">
+         <div class="container h-100">
+            <div class="row h-100">
+               <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
+                  <!-- Footer Social Info -->
+                  <div class="footer-social-info text-right">
+                     <a href="https://www.linkedin.com/in/jorge-amadeu-pereira" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  </div>
+                  <!-- Footer Logo -->
+                  <div class="footer-logo">
+                     <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                  </div>
+                  <!-- Copywrite -->
+                  <p>
+                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                     Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Jorge Pereira 
+                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  </p>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- ##### Footer Area Start ##### -->
+      <!-- ##### All Javascript Files ##### -->
+      <!-- jQuery-2.2.4 js -->
+      <script src="js/jquery/jquery-2.2.4.min.js"></script>
+      <!-- Popper js -->
+      <script src="js/bootstrap/popper.min.js"></script>
+      <!-- Bootstrap js -->
+      <script src="js/bootstrap/bootstrap.min.js"></script>
+      <!-- All Plugins js -->
+      <script src="js/plugins/plugins.js"></script>
+      <!-- Active js -->
+      <script src="js/active.js"></script>
+      <script src="js/login.js"></script>
+   </body>
+</html>

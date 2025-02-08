@@ -1,0 +1,28 @@
+header {
+    background-color: #333;
+    padding: 20px;
+    width: 100%;
+}
+
+header nav {
+    text-align: center; /* Alinhar o menu ao centro */
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+header nav a.active {
+   /* background-color: #007BFF;*/
+    border-radius: 5px;
+}

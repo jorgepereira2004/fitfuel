@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Title -->
+      <title>Fitfuel - Protein and Healthy Food | Calculadora</title>
+      <!-- Favicon -->
+      <link rel="icon" href="img/core-img/favicon.ico">
+      <!-- Core Stylesheet -->
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <!-- Preloader -->
+      <div id="preloader">
+         <i class="circle-preloader"></i>
+      </div>
+      <!-- ##### Header Area Start ##### -->
+      <header class="header-area">
+         <!-- Top Header Area -->
+         <div class="top-header-area">
+            <div class="container h-100">
+               <div class="row h-100 align-items-center justify-content-between">
+                  <div class="col-12 col-sm-6">
+                     <div class="breaking-news">
+                        <div id="breakingNewsTicker" class="ticker">
+                           <ul>
+                              <li><a href="#">Welcome to Fitfuel!</a></li>
+                              <li><a href="#">Protein and healthy food!</a></li>
+                              <li><a href="#">Calculate your calories!</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Top Social Info -->
+                  <div class="col-12 col-sm-6">
+                     <div class="top-social-info text-right">
+                        <a href="https://www.linkedin.com/in/jorge-amadeu-pereira" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Navbar Area -->
+         <div class="delicious-main-menu">
+            <div class="delicious-main-menu">
+               <div class="classy-nav-container breakpoint-off">
+                  <div class="container">
+                     <!-- Menu -->
+                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
+                        <!-- Logo -->
+                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                           <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                           <!-- close btn -->
+                           <div class="classycloseIcon">
+                              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                           </div>
+                           <!-- Nav Start -->
+                           <div class="classynav">
+                              <ul>
+                                 <li><a href="index.html">Home</a></li>
+                                 <li>
+                                    <a href="#">Receitas Grátis</a>
+                                    <ul class="dropdown">
+                                       <li><a href="breakfast.html">Pequeno-Almoço</a></li>
+                                       <li><a href="lunch.html">Almoço</a></li>
+                                       <li><a href="breakfast.html">Lanche</a></li>
+                                       <li><a href="lunch.html">Jantar</a></li>
+                                       <li><a href="desert.html">Sobremesa</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="active"><a href="calculate.html">Calcular calorias</a></li>
+                                 <li><a href="receipe-post.html">Login/Registrar</a></li>
+                              </ul>
+                           </div>
+                           <!-- Nav End -->
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- ##### Header Area End ##### -->
+      <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/calculator-with-this-color--40ba37-ok-but-the-back.jpg);">
+         <div class="container h-100">
+            <div class="row h-100 align-items-center">
+               <div class="col-12">
+                  <div class="breadcumb-text text-center">
+                     <h2>Calculadora de Taxa Metabólica Basal</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- ##### Elements Area Start ##### -->
+         <div class="tmb-calculadora">
+            <h2>Calculadora TMB</h2>
+            <label for="genero">Gênero:</label>
+            <select id="genero" class="tmb-select">
+               <option value="masculino">Masculino</option>
+               <option value="feminino">Feminino</option>
+            </select>
+            <label for="altura">Altura (cm):</label>
+            <input type="number" id="altura" placeholder="Ex: 175" />
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" placeholder="Ex: 68" />
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" placeholder="Ex: 20" />
+            <label for="nivelAtividade">Nível de Atividade:</label>
+            <select id="nivelAtividade" class="tmb-select">
+               <option value="1.2">Sedentário</option>
+               <option value="1.375">Exercício Leve (1-2 Dias/Semana)</option>
+               <option value="1.55">Exercício Moderado (3-4 Dias/Semana)</option>
+               <option value="1.725">Exercício Pesado (5-6 Dias/Semana)</option>
+               <option value="1.9">Atleta (2x por Dia)</option>
+            </select>
+            <button id="calcularBtn">Calcular</button>
+            <div id="resultado" class="tmb-resultado" style="display: none;"></div>
+         </div>
+      <!-- ***** Elements Area End ***** -->
+      <!-- ##### Footer Area Start ##### -->
+      <footer class="footer-area">
+         <div class="container h-100">
+            <div class="row h-100">
+               <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
+                  <!-- Footer Social Info -->
+                  <div class="footer-social-info text-right">
+                     <a href="https://www.linkedin.com/in/jorge-amadeu-pereira" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  </div>
+                  <!-- Footer Logo -->
+                  <div class="footer-logo">
+                     <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                  </div>
+                  <!-- Copywrite -->
+                  <p>
+                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                     Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Jorge Pereira 
+                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  </p>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- ##### Footer Area Start ##### -->
+      <!-- ##### All Javascript Files ##### -->
+      <!-- jQuery-2.2.4 js -->
+      <script src="js/jquery/jquery-2.2.4.min.js"></script>
+      <!-- Popper js -->
+      <script src="js/bootstrap/popper.min.js"></script>
+      <!-- Bootstrap js -->
+      <script src="js/bootstrap/bootstrap.min.js"></script>
+      <!-- All Plugins js -->
+      <script src="js/plugins/plugins.js"></script>
+      <!-- Active js -->
+      <script src="js/active.js"></script>
+   </body>
+</html>

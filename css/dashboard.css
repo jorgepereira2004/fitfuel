@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.image-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.image-container {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.dashboard-image {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: 100px; /* Ajuste o tamanho conforme necessário */
+    transition: transform 0.3s ease;
+}
+
+.dashboard-image:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
