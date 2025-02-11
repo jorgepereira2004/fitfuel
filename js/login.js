@@ -40,7 +40,7 @@
         document.getElementById("loginForm").style.display = "block";
         document.getElementById("registerForm").style.display = "none";
         document.getElementById("forgotPasswordForm").style.display = "none";
-        document.getElementById("changePasswordForm").style.display = "none";
+        // document.getElementById("changePasswordForm").style.display = "none";
     // Limpar mensagens de erro
         const registerErrorDiv = document.getElementById("registerError");
         if (registerErrorDiv) {

@@ -100,74 +100,58 @@
           smartSpeed: 1000
        });
     }
-    // Expor funções ao escopo global
-    window.openModal = function () {
-       document.getElementById("premiumModal").style.display = "flex";
-       const scrollUpButton = document.getElementById("scrollUp");
-       if (scrollUpButton) {
-          scrollUpButton.style.display = "none"; // Esconde o botão
-       }
-    };
-    window.closeModal = function () {
-       document.getElementById("premiumModal").style.display = "none";
-       const scrollUpButton = document.getElementById("scrollUp");
-       if (scrollUpButton) {
-          scrollUpButton.style.display = "block"; // Mostra o botão novamente
-       }
-    };
-
-    document.getElementById("premiumModal").addEventListener("click", function (event) {
-      // Verifica se o clique foi fora do modal-content
-      if (event.target === this) {
-         closeModal();
+      // :: 5.0 Modal Active Code
+    function toggleModal(modalId, show) {
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+      modal.style.display = show ? "flex" : "none";
+   
+      const scrollUpButton = document.getElementById("scrollUp");
+      if (scrollUpButton) {
+         scrollUpButton.style.display = show ? "none" : "block";
       }
-   });
-    window.openreceipeModal = function openreceipeModal(element) {
-       // Obter os dados do item clicado
-       const title = element.getAttribute('data-title');
-       const ingredients = element.getAttribute('data-ingredients');
-       const time = element.getAttribute('data-time');
-       const imageSrc = element.querySelector('img').getAttribute('src');
-       const url = element.getAttribute('data-url');
-       if (title && ingredients && time) {
-          // Atualizar o modal com os dados obtidos
-          document.getElementById('modalTitle').innerText = title;
-          document.getElementById('modalIngredients').innerText = ingredients;
-          document.getElementById('modalTime').innerText = time;
-          document.getElementById('modalImage').setAttribute('src', imageSrc);
-          document.getElementById('receipeModal').setAttribute('data-url', url); // Definir a URL no modal
-          // Exibir o modal
-          document.getElementById('receipeModal').style.display = 'block';
-       } else {
-          console.warn("Os dados necessários não estão presentes no elemento.");
-       }
-    };
-    window.openReceipe = function () {
-       const modal = document.getElementById('receipeModal');
-       const url = modal.getAttribute('data-url'); // Obter a URL do modal
-       if (url) {
+   
+      // Remover o evento duplicado
+      modal.onclick = function (event) {
+         if (event.target === modal) {
+            toggleModal(modalId, false);
+         }
+      };
+   }
+   // Todas as funçoes de modal das receitas
+   window.openModal = () => toggleModal("premiumModal", true);
+   window.closeModal = () => toggleModal("premiumModal", false);
+   window.openreceipeModal = (el) => {
+      const title = el.dataset.title;
+      const ingredients = el.dataset.ingredients;
+      const time = el.dataset.time;
+      const imageSrc = el.querySelector("img")?.src;
+      const url = el.dataset.url;
+   
+      if (title && ingredients && time) {
+         document.getElementById('modalTitle').textContent = title;
+         document.getElementById('modalIngredients').textContent = ingredients;
+         document.getElementById('modalTime').textContent = time;
+         document.getElementById('modalImage').src = imageSrc;
+         document.getElementById('receipeModal').dataset.url = url;
+   
+         toggleModal("receipeModal", true);
+      } else {
+         console.warn("Dados insuficientes para abrir o modal.");
+      }
+   };
+   window.closereceipeModal = () => toggleModal("receipeModal", false);
+
+   window.openReceipe = function () {
+      const modal = document.getElementById('receipeModal');
+      const url = modal.getAttribute('data-url'); // Obter a URL do modal
+      if (url) {
           window.location.href = url; // Redirecionar para a URL
        } else {
           console.warn("URL não definida.");
        }
-    };
-    window.closereceipeModal = function () {
-       document.getElementById("receipeModal").style.display = "none";
-       const scrollUpButton = document.getElementById("scrollUp");
-       if (scrollUpButton) {
-          scrollUpButton.style.display = "block"; // Mostra o botão novamente
-       }
-       document.getElementById("receipeModal").addEventListener("click", function (event) {
-          // Verifica se o clique foi fora do modal-content
-          if (event.target === this) {
-             closereceipeModal();
-          }
-       });
-    };
-    // window.knowMore = function () {
-    // openLoginModal(); // Redireciona para o modal de login
-    // // Redirecionar ou exibir lógica adicional
-    // };
+ };
+
     //tabela de informação
     document.addEventListener("DOMContentLoaded", function () {
        const allTabButtons = document.querySelectorAll(".tab-button");
@@ -200,54 +184,40 @@
           scrollName: 'scrollUp' // Adiciona este atributo para gerar o botão com o id correto
        });
     }
-    if (document.getElementById("calcularBtn")) {
-       // Calculadora tmb
-       document.getElementById("calcularBtn").addEventListener("click", function () {
-          // Captura os valores
-          const genero = document.getElementById("genero").value;
-          const altura = parseFloat(document.getElementById("altura").value);
-          const peso = parseFloat(document.getElementById("peso").value);
-          const idade = parseInt(document.getElementById("idade").value);
-          const nivelAtividade = parseFloat(document.getElementById("nivelAtividade").value);
-          if (isNaN(altura) || isNaN(peso) || isNaN(idade)) {
-             alert("Por favor, preencha todos os campos corretamente!");
-             return;
-          }
-          let tmb;
-          // Calcula TMB baseado no gênero
-          if (genero === "masculino") {
-             tmb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade);
-          } else if (genero === "feminino") {
-             tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
-          } else {
-             alert("Por favor, selecione um gênero válido.");
-             return;
-          }
-          // Aplica o fator do nível de atividade
-          const tmbAtiva = tmb * nivelAtividade;
-          // Calcula calorias para perder, manter e ganhar peso
-          const perderPeso = tmbAtiva - 500; // Déficit calórico de 500 kcal
-          const ganharPeso = tmbAtiva + 500; // Excesso calórico de 500 kcal
-          const manterPeso = tmbAtiva; // Calorias para manter o peso
-          // Exibe o resultado
-          const resultadoDiv = document.getElementById("resultado");
-          resultadoDiv.style.display = "block";
-          // Definir cores
-          const corManter = "#4c7bf4";
-          const corPerder = "#40ba37";
-          const corGanhar = "#e70014";
-          // Inserir HTML com estilos dinâmicos
-          resultadoDiv.innerHTML = `
+    document.getElementById("calcularBtn")?.addEventListener("click", function () {
+      const altura = parseFloat(document.getElementById("altura")?.value);
+      const peso = parseFloat(document.getElementById("peso")?.value);
+      const idade = parseInt(document.getElementById("idade")?.value);
+      const genero = document.getElementById("genero")?.value;
+      const nivelAtividade = parseFloat(document.getElementById("nivelAtividade")?.value);
+   
+      if (!altura || !peso || !idade) {
+         alert("Por favor, preencha todos os campos corretamente!");
+         return;
+      }
+   
+      let tmb = genero === "masculino" 
+         ? 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade) 
+         : 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
+   
+      const manterPeso = tmb * nivelAtividade;
+      const resultadoDiv = document.getElementById("resultado");
+
+      // Definir cores
+      const corManter = "#4c7bf4";
+      const corPerder = "#40ba37";
+      const corGanhar = "#e70014";
+
+      resultadoDiv.style.display = "block";
+   
+      resultadoDiv.innerHTML = `
  <p><strong>Resultado:</strong></p>
  <p>Sua <strong>Taxa Metabólica Basal</strong> (TMB) é: <strong>${tmb.toFixed(2)} kcal</strong></p>
  <p style="color: ${corManter};"><strong>Manter seu peso</strong>: <strong>${manterPeso.toFixed(2)} kcal</strong> por dia.</p>
- <p style="color: ${corPerder};"><strong>Perder peso</strong>: <strong>${perderPeso.toFixed(2)} kcal</strong> por dia.</p>
- <p style="color: ${corGanhar};"><strong>Ganhar peso</strong>: <strong>${ganharPeso.toFixed(2)} kcal</strong> por dia.</p>
+ <p style="color: ${corPerder};"><strong>Perder peso</strong>: <strong>${(manterPeso - 500).toFixed(2)} kcal</strong> por dia.</p>
+ <p style="color: ${corGanhar};"><strong>Ganhar peso</strong>: <strong>${(manterPeso + 500).toFixed(2)} kcal</strong> por dia.</p>
  `;
-       });
-    } else {
-       console.warn("Os elementos necessários não estão presentes nesta página.");
-    }
+   });
     // :: 8.0 CouterUp Active Code
     if ($.fn.counterUp) {
        $('.counter').counterUp({
