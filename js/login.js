@@ -40,7 +40,8 @@
         document.getElementById("loginForm").style.display = "block";
         document.getElementById("registerForm").style.display = "none";
         document.getElementById("forgotPasswordForm").style.display = "none";
-        // document.getElementById("changePasswordForm").style.display = "none";
+        document.getElementById("changePasswordForm").style.display = "none";
+        document.getElementById("verifyCodeForm").style.display = "none";
     // Limpar mensagens de erro
         const registerErrorDiv = document.getElementById("registerError");
         if (registerErrorDiv) {
@@ -77,79 +78,35 @@
             openLoginModal();
         }
     });
-    // Mostrar o formulário de recuperação de senha
-    window.showForgotPassword = function () {
-        document.getElementById("loginForm").style.display = "none";
-        document.getElementById("forgotPasswordForm").style.display = "block";
-        document.getElementById("registerForm").style.display = "none";
-        document.getElementById("changePasswordForm").style.display = "none";
-    };
 
-    window.closeforgotPasswordForm = function () {
-        const forgotPasswordForm = document.getElementById("forgotPasswordForm");
-        if (forgotPasswordForm) {
-            forgotPasswordForm.style.display = "none"; // Esconde o modal
-        }
-        // Remove parâmetros da URL
-        // const url = new URL(window.location.href);
-        // url.searchParams.delete("login_error"); // Remove o parâmetro de erro do login
-        // window.history.replaceState({}, document.title, url.pathname); // Atualiza a URL sem recarregar
 
-        // Limpa mensagens de erro no modal de login
-        // const loginErrorDiv = document.getElementById("loginError");
-        // if (loginErrorDiv) {
-        //     loginErrorDiv.innerText = ""; // Remove o texto de erro
-        //     loginErrorDiv.style.display = "none"; // Oculta o elemento
-        // }
-    };
 
-    // Adicionar o evento de clique fora do modal
-    document.addEventListener("click", function (event) {
-        const forgotPasswordForm = document.getElementById("forgotPasswordForm");
-        const modalContent1 = document.querySelector("#forgotPasswordForm .modal-content");
-
-        // Verifica se o clique foi no modal, mas fora do conteúdo
-        if (forgotPasswordForm && forgotPasswordForm.style.display === "block" && event.target === forgotPasswordForm) {
-            closeforgotPasswordForm(); // Fecha o modal
-        }
-    });
-
+    
       // Mostrar o formulário de recuperação de senha
-      window.showchangePasswordForm = function () {
-        document.getElementById("loginForm").style.display = "none";
-        document.getElementById("forgotPasswordForm").style.display = "none";
-        document.getElementById("registerForm").style.display = "none";
-        document.getElementById("changePasswordForm").style.display = "block";
-    };
 
-    window.closechangePasswordForm = function () {
-        const changePasswordForm = document.getElementById("changePasswordForm");
-        if (changePasswordForm) {
-            changePasswordForm.style.display = "none"; // Esconde o modal
-        }
-        // Remove parâmetros da URL
-        // const url = new URL(window.location.href);
-        // url.searchParams.delete("login_error"); // Remove o parâmetro de erro do login
-        // window.history.replaceState({}, document.title, url.pathname); // Atualiza a URL sem recarregar
 
-        // Limpa mensagens de erro no modal de login
-        // const loginErrorDiv = document.getElementById("loginError");
-        // if (loginErrorDiv) {
-        //     loginErrorDiv.innerText = ""; // Remove o texto de erro
-        //     loginErrorDiv.style.display = "none"; // Oculta o elemento
-        // }
-    };
+// Enviar nova password
+// document.getElementById("resetPasswordForm").addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     const formData = new FormData(this);
 
-    // Adicionar o evento de clique fora do modal
-    document.addEventListener("click", function (event) {
-        const changePasswordForm = document.getElementById("changePasswordForm");
-        const modalContent2 = document.querySelector("#changePasswordForm .modal-content");
-
-        // Verifica se o clique foi no modal, mas fora do conteúdo
-        if (changePasswordForm && changePasswordForm.style.display === "block" && event.target === changePasswordForm) {
-            closechangePasswordForm(); // Fecha o modal
-        }
-    });
+//     fetch("includes/reset_password.php", {
+//         method: "POST",
+//         body: formData
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         if (data.status === "success") {
+//             document.getElementById("resetPasswordSuccess").innerText = data.message;
+//             document.getElementById("resetPasswordSuccess").style.display = "block";
+//             setTimeout(() => showLogin(), 2000);
+//         } else {
+//             document.getElementById("resetPasswordError").innerText = data.message;
+//             document.getElementById("resetPasswordError").style.display = "block";
+//         }
+//     })
+//     .catch(error => console.error("Erro:", error));
+// });
 
     // Mostrar o formulário de registro
     window.showRegister = function () {

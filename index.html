@@ -129,21 +129,35 @@
                                        <input type="email" id="forgotEmail" name="email" required>
                                        <div id="forgotPasswordError" style="color: red; display: none;"></div>
                                        <button type="submit">Enviar Link de Recuperação</button>
-                                       <!-- <button onclick="showchangePasswordForm()">Enviar Link de Recuperação</button> -->
                                     </form>
                                     <p><a href="#" onclick="showLogin()">Voltar ao Login</a></p>
                                  </div>
-                                 <!-- Container change -->
-                                 <!-- <div id="changePasswordForm" style="display: none;">
-                                    <h2>Redefinir Palavra-passe</h2>
-                                    <form method="POST" action="reset_password.php">
-                                        <label for="password">Nova Password:</label>
-                                        <input type="password" id="password" name="password" required>
-                                        <label for="password_confirm">Confirmar Password:</label>
-                                        <input type="password" id="password_confirm" name="password_confirm" required>
-                                        <button type="submit">Redefinir</button>
+                                 <!-- Container verify -->
+                                 <div id="verifyCodeForm" style="display: none;">
+                                    <h2>Verificar Código</h2>
+                                    <p>Introduz o código que enviámos para o teu email.</p>
+                                    <form id="verifyCodeForm">
+                                        <label for="verificationCode">Código de Recuperação:</label>
+                                        <input type="text" id="verificationCode" name="verificationCode" required>
+                                        <div id="verifyCodeError" style="color: red; display: none;"></div>
+                                        <button type="submit">Verificar Código</button>
                                     </form>
-                                </div> -->
+                                    <p><a href="#" onclick="showForgotPassword()">Voltar atrás</a></p>
+                                </div>
+                                <!--Container change -->
+                                <div id="changePasswordForm" style="display: none;">
+                                 <h2>Redefinir Palavra-passe</h2>
+                                 <form id="resetPasswordForm"> <!-- MUDADO O ID -->
+                                     <input type="hidden" id="hiddenVerificationCode" name="verificationCode">
+                                     <label for="password">Nova Password:</label>
+                                     <input type="password" id="password" name="password" required>
+                                     <label for="password_confirm">Confirmar Password:</label>
+                                     <input type="password" id="password_confirm" name="password_confirm" required>
+                                     <button type="submit">Redefinir</button>
+                                     <div id="resetPasswordError" style="color: red; display: none;"></div>
+                                     <div id="resetPasswordSuccess" style="color: green; display: none;"></div>
+                                 </form>
+                             </div>                             
                                  <!-- Container Registro -->
                                  <div id="registerForm" style="display: none;">
                                     <h2>Registrar</h2>
@@ -462,5 +476,8 @@
       <!-- Active js -->
       <script src="js/active.js"></script>
       <script src="js/login.js"></script>
+      <script src="js/forgot_password.js"></script>
+      <script src="js/verify_code.js"></script>
+      <script src="js/change_password.js"></script>
    </body>
 </html>
